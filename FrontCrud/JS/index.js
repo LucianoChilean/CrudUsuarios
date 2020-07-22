@@ -214,7 +214,17 @@ $("#rut").rut({formatOn: 'keyup',validateOn: 'keyup'}).on('rutInvalido', functio
  
     }).on('rutValido', function(){ 
        
-        
+        $.ajax({ 
+            url:  `http://127.0.0.1:8000/api/userRut/${$("#rut").val()}`,
+            method: "GET"
+        }).then(function(data){
+            if(data.length == 1){
+                alert('Este rut ya existe');
+            }
+        }).catch(function (err){
+            console.log(err);
+        });
+
    });
 
   $('.Vapellidos').change(function(){
