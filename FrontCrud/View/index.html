@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Administrador Usuarios</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Page level plugin CSS-->
+  <link href="../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="../css/sb-admin.css" rel="stylesheet">
+  
+  <!-- styles sweetalert-->
+  <link rel="stylesheet" href="../vendor/sweetalert2/css/animate.css">
+  <link rel="stylesheet" href="../vendor/sweetalert2/css/sweetalert2.min.css">
+
+</head>
+
+<body id="page-top">
+
+  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+    <a class="navbar-brand mr-1" href="index.html">Administrador Usuarios</a>
+
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Navbar Search -->
+    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+      <div class="input-group">
+      
+      </div>
+    </form>
+
+    <!-- Navbar -->
+    <ul class="navbar-nav ml-auto ml-md-0">
+      
+    </ul>
+
+  </nav>
+
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul id="sidebar" class="sidebar navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      
+    
+    </ul>
+
+    <div id="content-wrapper">
+
+      <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="#">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active">Administrador Usuarios</li>
+        </ol>
+
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-table"></i>
+            Usuarios
+           </div>
+          <div class="card-body">
+            <button class="btn btn-primary" id="nuevo" data-toggle="modal" 
+            data-target="#modalUser">Nuevo</button>
+            <br>
+          </br>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="CrudUsuarios" width="100%" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>Nombres</th>
+                        <th>Apellido</th>
+                        <th>Rut</th>
+                        <th>Fecha nacimiento</th>
+                        <th>E-mail</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                  </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Registro Usuario Modal-->
+  <div class="modal fade" id="modalUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" ><span id="RegForm"></span></h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" name="id" id="id" >
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <span>Nombres</span>
+                  <input type="text" class="form-control" name="nombre" id="nombre" required>
+                </div>
+              </div>
+             
+            </div>
+          </div>
+           
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <span>Apellido Paterno</span>
+                  <input type="text" class="Vapellidos form-control" name="apep" id="apep" required>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <span>Apellido Materno</span>
+                  <input type="text" class="Vapellidos form-control" name="apem" id="apem" required>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <span>Rut</span>
+                  <input type="text" class="inputr form-control"  name="rut" id="rut" placeholder="11.111.111-1" required>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <span>Fecha Nacimiento</span>
+                  <input type="date" class="form-control" name="fechan" id="fechan" required>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <span>Email</span>
+                  <input type="text" class="form-control" name="email" id="email" required>
+                </div>
+              </div>
+             
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <span>Contraseña</span>
+                  <input type="password" class="form-control" name="password" id="password" required>  
+                </div>
+              </div>
+             
+            </div>
+          </div>
+         
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-12">
+                <div class="form-group">
+               
+                  <input type="file" id="FotoPerfil"class="btn btn-secondary" value="Subir foto de perfil">
+                </div>
+              </div>
+             
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary" id="Registrar">Guardar</button>
+                  <button type="submit" class="btn btn-primary" id="Editar">Guardar</button>
+                </div>
+              </div>
+             
+            </div>
+          </div> 
+
+        </div>
+   
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Eliminar usuario!</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="codigo" value="">
+         ¿Desea eliminar al usuario?
+
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-danger" id="User_delete">Eliminar</button>
+          <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
+  <script src="../vendor/datatables/jquery.dataTables.js"></script>
+  <script src="../vendor/datatables/dataTables.bootstrap4.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="../js/sb-admin.min.js"></script>
+  
+   <!-- Validador de rut-->
+  <script src="../JS/jquery.rut.js"></script>
+
+   <!-- Script for sweetalert-->
+  <script src="../vendor/sweetalert2/js/sweetalert2.all.min.js"></script> 
+  <!-- Demo scripts for this page-->
+  <script src="../js/index.js"></script>
+  
+
+</body>
+
+</html>
